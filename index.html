@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Couture Modern — Bespoke Fashion</title>
+  <meta name="description" content="Couture Modern — a contemporary-meets-classic fashion brand. Shop curated collections, view lookbooks, and get in touch for bespoke pieces." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#C69C6D; /* warm gold */
+      --bg:#0f0f0f;
+      --card:#111;
+      --muted:#bdbdbd;
+      --glass: rgba(255,255,255,0.04);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter,system-ui,Arial; background:linear-gradient(180deg,#080808 0%, #121212 100%);color:#fff;-
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45
+    }
+    header{position:fixed;left:0;right:0;top:0;z-index:40;backdrop-filter: blur(6px);background:linear-gradient(180deg,rgba(0,0,0,0.55),transparent);padding:18px 28px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{font-family: 'Playfair Display', serif;font-weight:700;font-size:20px;color:var(--accent)}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:#ddd;text-decoration:none;font-size:15px}
+    .cta{background:var(--accent);color:#070707;padding:10px 14px;border-radius:12px;font-weight:600;text-decoration:none}
+
+    /* Hero */
+    .hero{min-height:78vh;padding-top:90px;display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;padding:90px 6vw}
+    .hero .eyebrow{color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-size:12px}
+    .hero h1{font-family:'Playfair Display',serif;font-size:48px;margin:6px 0 12px}
+    .hero p{color:var(--muted);max-width:60ch}
+    .hero .shop-btn{display:inline-block;margin-top:16px;padding:12px 18px;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.06)}
+
+    .hero .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:18px}
+    .product-hero{display:grid;gap:12px}
+    .ph-item{display:flex;align-items:center;gap:12px}
+    .ph-item img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+    .ph-item .meta{font-size:13px}
+
+    /* Products */
+    section.products{padding:48px 6vw}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px}
+    .card{background:var(--card);padding:18px;border-radius:16px;box-shadow:0 6px 30px rgba(0,0,0,0.6)}
+    .card img{width:100%;height:280px;object-fit:cover;border-radius:12px}
+    .card h3{margin:10px 0 6px}
+    .price{color:var(--accent);font-weight:700}
+    .small{color:var(--muted);font-size:13px}
+
+    /* Lookbook */
+    .lookbook{padding:28px 6vw;display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
+    .lookbook .photos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .lookbook img{width:100%;height:160px;object-fit:cover;border-radius:12px}
+
+    /* About + Contact */
+    .about-contact{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:36px 6vw}
+    .about{background:var(--glass);padding:22px;border-radius:16px}
+    .contact{background:var(--glass);padding:22px;border-radius:16px}
+    form{display:flex;flex-direction:column;gap:12px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:#fff}
+    button[type=submit]{background:var(--accent);border:none;padding:12px;border-radius:10px;font-weight:700}
+
+    footer{padding:26px 6vw;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;padding:120px 6vw}
+      .lookbook{grid-template-columns:1fr}
+      .about-contact{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">Couture Modern</div>
+      <div class="small">Bespoke • Sustainable • Timeless</div>
+    </div>
+    <nav>
+      <a href="#collections">Collections</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#shop">Shop</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="hero">
+      <div>
+        <div class="eyebrow">New — Autumn / Winter 2025</div>
+        <h1>Where Modern Lines Meet Classic Craftsmanship</h1>
+        <p>At Couture Modern, we create garments that are wearable art — precision tailoring, sustainable fabrics, and modern silhouettes for the discerning wardrobe. Each piece is designed to age gracefully.</p>
+        <a class="shop-btn" href="#collections">Explore the Collection</a>
+      </div>
+      <aside class="panel product-hero" aria-hidden="false">
+        <div class="ph-item">
+          <img src="https://images.unsplash.com/photo-1520975911526-4b3b6d2f2a3d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="signature jacket">
+          <div>
+            <div style="font-weight:700">Signature Tailored Jacket</div>
+            <div class="small">Structured shoulders • Recycled wool</div>
+            <div class="price">₹12,499</div>
+          </div>
+        </div>
+        <div class="ph-item">
+          <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="drape dress">
+          <div>
+            <div style="font-weight:700">Fluid Drape Dress</div>
+            <div class="small">Bias-cut silk blend • Limited run</div>
+            <div class="price">₹9,999</div>
+          </div>
+        </div>
+        <div style="margin-top:8px;color:var(--muted);font-size:13px">Free tailoring consult with every bespoke order.</div>
+      </aside>
+    </section>
+
+    <section id="collections" class="products" aria-label="collections">
+      <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:18px">
+        <div>
+          <div class="eyebrow">Collections</div>
+          <h2 style="margin:4px 0 0;font-family:'Playfair Display',serif">Curated Pieces</h2>
+        </div>
+        <div class="small">Shop online or book an appointment</div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1495121605193-b116b5b09a54?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="product1">
+          <h3>Structured Blazer</h3>
+          <div class="small">Tailored fit • Contrast lining</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+            <div class="price">₹11,999</div>
+            <div style="display:flex;gap:8px">
+              <a href="#" class="small">View</a>
+              <a href="#" class="small">Add to bag</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="product2">
+          <h3>Minimal Trench</h3>
+          <div class="small">Water-resistant • Removable liner</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+            <div class="price">₹8,499</div>
+            <div style="display:flex;gap:8px">
+              <a href="#" class="small">View</a>
+              <a href="#" class="small">Add to bag</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1486915309851-b0cc1f8a008e?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="product3">
+          <h3>Tailored Trousers</h3>
+          <div class="small">Mid-rise • Italian cotton</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+            <div class="price">₹5,999</div>
+            <div style="display:flex;gap:8px">
+              <a href="#" class="small">View</a>
+              <a href="#" class="small">Add to bag</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="product4">
+          <h3>Evening Silk Top</h3>
+          <div class="small">Hand-finished seams</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+            <div class="price">₹6,299</div>
+            <div style="display:flex;gap:8px">
+              <a href="#" class="small">View</a>
+              <a href="#" class="small">Add to bag</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="lookbook" class="lookbook">
+      <div>
+        <div class="eyebrow">Lookbook</div>
+        <h2 style="margin-top:6px;font-family:'Playfair Display',serif">The Capsule — Wear It Now</h2>
+        <p class="small">A visual narrative of silhouette, fabric, and curated colour palettes. Photographed on location with natural light — minimal retouching, honest textures.</p>
+        <div style="margin-top:12px">
+          <a href="#" class="shop-btn">View Full Lookbook</a>
+        </div>
+      </div>
+      <div class="photos">
+        <img src="https://images.unsplash.com/photo-1520975911526-4b3b6d2f2a3d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="look1">
+        <img src="https://images.unsplash.com/photo-1530845649620-10a0e7d20f83?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="look2">
+        <img src="https://images.unsplash.com/photo-1495121605193-b116b5b09a54?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="look3">
+        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="look4">
+      </div>
+    </section>
+
+    <section id="about" class="about-contact">
+      <div class="about">
+        <h3 style="font-family:'Playfair Display',serif">About Couture Modern</h3>
+        <p class="small">Founded with the belief that great clothes are born from thoughtful design and conscientious production. We partner with ateliers for limited runs and use low-impact materials wherever possible. Our values: craft, fit, longevity.</p>
+        <ul class="small" style="margin-top:10px">
+          <li>Made-to-order & small-batch production</li>
+          <li>Free repairs within first year</li>
+          <li>Carbon-offset shipping options</li>
+        </ul>
+      </div>
+
+      <div id="contact" class="contact">
+        <h3 style="font-family:'Playfair Display',serif">Contact & Appointments</h3>
+        <p class="small">For bespoke consultations or press, reach out below. We reply within 48 hours.</p>
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="email" id="email" placeholder="Email" required />
+          <input type="text" id="subject" placeholder="Subject" />
+          <textarea id="message" rows="4" placeholder="Message"></textarea>
+          <button type="submit">Send message</button>
+        </form>
+        <div style="margin-top:12px;font-size:13px;color:var(--muted)">Or email us at <a href="mailto:hello@couturemodern.example" style="color:var(--accent)">hello@couturemodern.example</a></div>
+      </div>
+    </section>
+
+    <section style="padding:28px 6vw">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;margin:0">Join the List</h3>
+          <div class="small">Sign up for drop notices and private sales (no spam)</div>
+        </div>
+        <form style="display:flex;gap:8px;align-items:center" onsubmit="event.preventDefault();alert('Subscribed — demo only')">
+          <input type="email" placeholder="Your email" style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff" required>
+          <button type="submit" style="background:var(--accent);border:none;padding:10px 14px;border-radius:10px">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>
+      <div style="font-weight:700">Couture Modern</div>
+      <div class="small">© 2025 Couture Modern — All rights reserved</div>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center">
+      <a href="#" class="small">Privacy Policy</a>
+      <a href="#" class="small">Terms</a>
+      <a href="#" class="small">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    function submitForm(e){
+      e.preventDefault();
+      const name=document.getElementById('name').value;
+      const email=document.getElementById('email').value;
+      const subj=document.getElementById('subject').value;
+      const msg=document.getElementById('message').value;
+      // Demo: open mailto with prefilled content
+      const body = encodeURIComponent(msg + '\n\n--\n' + name + ' (' + email + ')');
+      const mailto = 'mailto:hello@couturemodern.example?subject=' + encodeURIComponent(subj||'Contact from site') + '&body=' + body;
+      window.location.href = mailto;
+    }
+  </script>
+</body>
+</html>
