@@ -2,136 +2,371 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Couture Modern — Bespoke Fashion</title>
-  <meta name="description" content="Couture Modern — where haute couture meets futuristic streetwear. Shop curated collections, view lookbooks, and book bespoke consultations." />
-
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Couture Modern — Modern Parisian Couture</title>
+  <meta name="description" content="Couture Modern — Modern Parisian couture. Curated capsules, editorial lookbooks and bespoke tailoring." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --accent:#C69C6D; /* warm gold */
-      --bg:#070707;
-      --card:#0f0f0f;
-      --muted:#bdbdbd;
-      --glass: rgba(255,255,255,0.04);
-      --radius:16px;
-      --glass-strong: rgba(255,255,255,0.06);
-      --accent-2: #8fd3ff;
+      --bg:#ffffff;
+      --text:#111111;
+      --muted:#6b6b6b;
+      --accent:#c69c6d; /* warm gold */
+      --glass: rgba(255,255,255,0.6);
+      --radius:14px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html,body{height:100%}
     body{
-      margin:0;font-family:Inter,system-ui,Arial; background:var(--bg);color:#fff;min-height:100vh;overflow-x:hidden
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      color:var(--text);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
     }
 
-    /* NAV */
-    header{position:fixed;left:0;right:0;top:0;z-index:100;backdrop-filter: blur(8px);background:linear-gradient(180deg, rgba(0,0,0,0.5), transparent);padding:14px 36px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;gap:14px;align-items:center}
-    .logo{font-family: 'Playfair Display', serif;font-weight:700;font-size:20px;color:var(--accent);letter-spacing:1px}
-    nav{display:flex;gap:18px;align-items:center}
-    nav a{color:#ddd;text-decoration:none;font-size:15px;position:relative;padding:6px}
-    nav a::after{content:'';height:2px;background:var(--accent);position:absolute;left:6px;right:6px;bottom:2px;transform:scaleX(0);transform-origin:left center;transition:transform .28s ease}
+    /* Header */
+    header{
+      position:fixed; top:0; left:0; right:0; z-index:60;
+      backdrop-filter: blur(8px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
+      border-bottom:1px solid rgba(16,16,16,0.04);
+      padding:14px 20px;
+    }
+    .nav-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;flex-direction:column}
+    .brand .logo{font-family:'Playfair Display',serif;font-size:20px;letter-spacing:1px;font-weight:600;color:var(--text)}
+    .brand .meta{font-size:12px;color:var(--muted);margin-top:2px}
+
+    nav{display:flex;gap:22px;align-items:center}
+    nav a{font-size:15px;color:var(--text);text-decoration:none;padding:8px 6px;position:relative;opacity:0.95}
+    nav a:hover{opacity:1}
+    nav a::after{content:"";position:absolute;left:6px;right:6px;bottom:4px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left center;transition:transform .28s ease}
     nav a:hover::after{transform:scaleX(1)}
-    .cta{background:var(--accent);color:#070707;padding:10px 14px;border-radius:12px;font-weight:600;text-decoration:none}
-    .menu-toggle{display:none}
+    .cta{background:var(--text);color:#fff;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600}
 
-    /* HERO */
-    .hero{min-height:92vh;padding-top:84px;display:grid;grid-template-columns:1fr 480px;gap:40px;align-items:center;padding:84px 6vw}
-    .eyebrow{color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-size:12px}
-    h1{font-family:'Playfair Display',serif;font-size:56px;margin:6px 0 12px;line-height:1.02}
-    .sub{color:var(--muted);max-width:58ch;font-size:16px}
-    .shop-btn{display:inline-block;margin-top:20px;padding:12px 18px;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.06);backdrop-filter: blur(4px)}
+    .hamburger{display:none;background:transparent;border:1px solid rgba(0,0,0,0.06);padding:6px;border-radius:8px}
 
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:18px;border:1px solid rgba(255,255,255,0.03)}
-    .ph-item{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-    .ph-item img{width:72px;height:72px;object-fit:cover;border-radius:12px}
+    main{padding-top:88px}
+
+    /* Hero */
+    .hero{
+      min-height:78vh;
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:36px;
+      align-items:center;
+      max-width:1200px;
+      margin:0 auto;
+      padding:48px 20px;
+    }
+    .hero-left{padding-right:10px}
+    .eyebrow{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+    h1{font-family:'Playfair Display',serif;font-size:48px;margin:8px 0 12px;line-height:1.03}
+    p.lead{color:var(--muted);max-width:56ch;font-size:16px}
+    .btn{
+      display:inline-block;margin-top:20px;padding:12px 18px;border-radius:12px;border:1px solid rgba(17,17,17,0.06);
+      background:transparent;text-decoration:none;color:var(--text);font-weight:600
+    }
+
+    .hero-right{
+      background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+      padding:18px;border-radius:14px;border:1px solid rgba(0,0,0,0.04);
+    }
+    .product-mini{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+    .product-mini img{width:78px;height:78px;object-fit:cover;border-radius:10px}
 
     /* Collections */
-    section.products{padding:48px 6vw}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03);transform:translateY(0);transition:transform .28s ease, box-shadow .28s ease}
-    .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,0.7)}
-    .card img{width:100%;height:320px;object-fit:cover;border-radius:10px}
+    .section{padding:48px 20px;max-width:1200px;margin:0 auto}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-bottom:18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+    .card{
+      border-radius:12px;overflow:hidden;background:#fff;border:1px solid rgba(16,16,16,0.04);
+      box-shadow: 0 12px 30px rgba(16,16,16,0.04);
+      transition:transform .34s cubic-bezier(.2,.9,.2,1), box-shadow .34s ease;
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(16,16,16,0.08)}
+    .card img{width:100%;height:300px;object-fit:cover;display:block}
+    .card-body{padding:14px}
+    .card h3{margin:6px 0 6px;font-family:'Playfair Display',serif}
     .price{color:var(--accent);font-weight:700}
 
     /* Lookbook */
-    .lookbook{padding:28px 6vw;display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
-    .photos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .photos img{width:100%;height:160px;object-fit:cover;border-radius:10px}
-
-    /* Couture drop */
-    .drop{padding:64px 6vw;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));display:flex;gap:24px;align-items:center}
-    .drop .left{flex:1}
-    .drop .right{flex:1}
-    .drop .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px;color:var(--muted)}
-    .drop h2{font-family:'Playfair Display',serif;font-size:36px}
+    .lookbook{display:grid;grid-template-columns:1fr 420px;gap:22px;align-items:center}
+    .photos{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .photos img{width:100%;height:150px;object-fit:cover;border-radius:10px}
 
     /* About + Contact */
-    .about-contact{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:36px 6vw}
-    .glass{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-    form{display:flex;flex-direction:column;gap:12px}
-    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:#fff}
-    button[type=submit]{background:var(--accent);border:none;padding:12px;border-radius:10px;font-weight:700}
+    .about-contact{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .glass{padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.95));border:1px solid rgba(16,16,16,0.03)}
 
-    footer{padding:26px 6vw;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center}
+    /* Footer */
+    footer{padding:28px 20px;border-top:1px solid rgba(16,16,16,0.04);max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:18px}
 
     /* Animations */
-    .fade-up{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+    .fade-up{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
     .in-view{opacity:1;transform:none}
-
-    /* Dark/Noir toggle */
-    .theme-toggle{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px;border-radius:10px;color:var(--muted)}
 
     /* Responsive */
     @media (max-width:980px){
-      .hero{grid-template-columns:1fr;padding:120px 6vw}
-      .hero h1{font-size:40px}
+      .hero{grid-template-columns:1fr; padding:40px 20px}
       .lookbook{grid-template-columns:1fr}
       .about-contact{grid-template-columns:1fr}
       nav{display:none}
-      .menu-toggle{display:block;color:#fff}
+      .hamburger{display:inline-block}
     }
-
     @media (max-width:520px){
-      .card img{height:220px}
+      h1{font-size:32px}
+      .card img{height:200px}
     }
 
-    /* subtle parallax */
-    .parallax{will-change:transform}
-
-    /* accessibility focus states */
-    a:focus, button:focus, input:focus{outline:3px solid rgba(198,156,109,0.12);outline-offset:2px}
+    /* Accessibility focus */
+    a:focus, button:focus { outline:3px solid rgba(198,156,109,0.12); outline-offset:2px }
   </style>
 </head>
-<body class="bg-white text-gray-900 tracking-tight antialiased">
-  <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 transition-all duration-300">
-    <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="text-3xl font-['Playfair_Display'] font-light">Couture Modern</div>
-      <ul class="space-x-8 hidden md:flex text-lg font-light">
-        <li class="hover:opacity-60 transition cursor-pointer">Home</li>
-        <li class="hover:opacity-60 transition cursor-pointer">Collections</li>
-        <li class="hover:opacity-60 transition cursor-pointer">Lookbook</li>
-        <li class="hover:opacity-60 transition cursor-pointer">Contact</li>
-      </ul>
-      <button id="mobileMenuBtn" class="md:hidden text-3xl">☰</button>
-    </nav>
-  </header>
-  <section class="h-screen flex items-center justify-center bg-cover bg-center" style="background:url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1400&q=80') no-repeat;">
-    <div class="text-center px-6 animate-fadeIn opacity-0 translate-y-8">
-      <h1 class="text-5xl md:text-7xl font-['Playfair_Display'] font-light mb-6">Modern Parisian Couture</h1>
-      <p class="text-lg md:text-xl font-light max-w-2xl mx-auto opacity-80">Effortless minimalism crafted with poetic precision.</p>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <div class="brand">
+        <div class="logo">Couture Modern</div>
+        <div class="meta">Bespoke • Sustainable • Timeless</div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#collections">Collections</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#about">About</a>
+        <a class="cta" href="#contact">Contact</a>
+      </nav>
+
+      <button class="hamburger" id="mobileBtn" aria-label="Open menu">☰</button>
     </div>
-  </section>
-  <section class="py-24 px-6 md:px-12 text-center animate-fadeIn opacity-0 translate-y-8">
-    <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] font-light mb-4">Featured Editorial</h2>
-    <p class="text-lg md:text-xl font-light max-w-3xl mx-auto opacity-70">A curated capsule inspired by the quiet architecture of light and shadow.</p>
-  </section>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero" aria-label="Hero">
+      <div class="hero-left">
+        <div class="eyebrow">New — Autumn / Winter 2025</div>
+        <h1>Modern Parisian Couture</h1>
+        <p class="lead">Effortless minimalism crafted with poetic precision. Limited drops, made-to-order tailoring, and editorial capsules designed to age gracefully.</p>
+        <a class="btn" href="#collections">Explore the Collection</a>
+      </div>
+
+      <aside class="hero-right fade-up" tabindex="-1" aria-hidden="false">
+        <div class="product-mini">
+          <img src="https://images.unsplash.com/photo-1520975911526-4b3b6d2f2a3d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Signature tailored jacket">
+          <div>
+            <div style="font-weight:700">Signature Tailored Jacket</div>
+            <div style="font-size:13px;color:var(--muted)">Structured shoulders • Recycled wool</div>
+            <div class="price">₹12,499</div>
+          </div>
+        </div>
+
+        <div class="product-mini">
+          <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Fluid drape dress">
+          <div>
+            <div style="font-weight:700">Fluid Drape Dress</div>
+            <div style="font-size:13px;color:var(--muted)">Bias-cut silk blend • Limited run</div>
+            <div class="price">₹9,999</div>
+          </div>
+        </div>
+
+        <div style="margin-top:8px;font-size:13px;color:var(--muted)">Free tailoring consult with every bespoke order.</div>
+      </aside>
+    </section>
+
+    <!-- COLLECTIONS -->
+    <section id="collections" class="section" aria-label="Collections">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Collections</div>
+          <h2 style="font-family:'Playfair Display',serif;margin:6px 0 0">Curated Pieces</h2>
+        </div>
+        <div style="color:var(--muted);font-size:13px">Shop online or book an appointment</div>
+      </div>
+
+      <div class="grid">
+        <article class="card fade-up">
+          <img src="https://images.unsplash.com/photo-1495121605193-b116b5b09a54?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Structured Blazer">
+          <div class="card-body">
+            <h3>Structured Blazer</h3>
+            <div style="color:var(--muted);font-size:13px">Tailored fit • Contrast lining</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+              <div class="price">₹11,999</div>
+              <div style="display:flex;gap:12px">
+                <a href="#" style="font-size:13px;color:var(--muted)">View</a>
+                <a href="#" style="font-size:13px;color:var(--muted)">Add to bag</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Minimal Trench">
+          <div class="card-body">
+            <h3>Minimal Trench</h3>
+            <div style="color:var(--muted);font-size:13px">Water-resistant • Removable liner</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+              <div class="price">₹8,499</div>
+              <div style="display:flex;gap:12px">
+                <a href="#" style="font-size:13px;color:var(--muted)">View</a>
+                <a href="#" style="font-size:13px;color:var(--muted)">Add to bag</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <img src="https://images.unsplash.com/photo-1486915309851-b0cc1f8a008e?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Tailored Trousers">
+          <div class="card-body">
+            <h3>Tailored Trousers</h3>
+            <div style="color:var(--muted);font-size:13px">Mid-rise • Italian cotton</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+              <div class="price">₹5,999</div>
+              <div style="display:flex;gap:12px">
+                <a href="#" style="font-size:13px;color:var(--muted)">View</a>
+                <a href="#" style="font-size:13px;color:var(--muted)">Add to bag</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Evening Silk Top">
+          <div class="card-body">
+            <h3>Evening Silk Top</h3>
+            <div style="color:var(--muted);font-size:13px">Hand-finished seams</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+              <div class="price">₹6,299</div>
+              <div style="display:flex;gap:12px">
+                <a href="#" style="font-size:13px;color:var(--muted)">View</a>
+                <a href="#" style="font-size:13px;color:var(--muted)">Add to bag</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK -->
+    <section id="lookbook" class="section lookbook" aria-label="Lookbook">
+      <div>
+        <div class="eyebrow">Lookbook</div>
+        <h2 style="font-family:'Playfair Display',serif;margin-top:6px">The Capsule — Wear It Now</h2>
+        <p style="color:var(--muted);max-width:56ch">A visual narrative of silhouette, fabric and curated palettes. Minimal retouching, honest textures — editorial-first photography.</p>
+        <div style="margin-top:12px">
+          <a class="btn" href="#">View Full Lookbook</a>
+        </div>
+      </div>
+
+      <div class="photos">
+        <img src="https://images.unsplash.com/photo-1520975911526-4b3b6d2f2a3d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Look 1">
+        <img src="https://images.unsplash.com/photo-1530845649620-10a0e7d20f83?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Look 2">
+        <img src="https://images.unsplash.com/photo-1495121605193-b116b5b09a54?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Look 3">
+        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Look 4">
+      </div>
+    </section>
+
+    <!-- ABOUT & CONTACT -->
+    <section class="section about-contact" aria-label="About and Contact">
+      <div class="glass fade-up">
+        <h3 style="font-family:'Playfair Display',serif;margin-top:0">About Couture Modern</h3>
+        <p style="color:var(--muted)">Founded with the belief that garments are stories told through fabric and cut. We partner with ateliers for low-impact limited runs and made-to-order tailoring. Craft, fit and longevity are our pillars.</p>
+        <ul style="color:var(--muted);margin-top:10px">
+          <li>Made-to-order & small-batch production</li>
+          <li>Free repairs within the first year</li>
+          <li>Carbon-offset shipping available</li>
+        </ul>
+      </div>
+
+      <div class="glass fade-up" id="contact">
+        <h3 style="font-family:'Playfair Display',serif;margin-top:0">Contact & Appointments</h3>
+        <p style="color:var(--muted)">For bespoke consultations or press, reach out below. We reply within 48 hours.</p>
+        <form onsubmit="submitMail(event)" style="display:flex;flex-direction:column;gap:10px">
+          <input name="name" placeholder="Your name" required style="padding:12px;border-radius:10px;border:1px solid rgba(16,16,16,0.06);background:transparent">
+          <input name="email" type="email" placeholder="Email" required style="padding:12px;border-radius:10px;border:1px solid rgba(16,16,16,0.06);background:transparent">
+          <textarea name="message" rows="4" placeholder="Message" style="padding:12px;border-radius:10px;border:1px solid rgba(16,16,16,0.06);background:transparent"></textarea>
+          <div style="display:flex;gap:10px;align-items:center">
+            <button type="submit" class="btn" style="background:var(--text);color:#fff;border:none">Send message</button>
+            <div style="color:var(--muted);font-size:13px">Or email <a href="mailto:hello@couturemodern.example" style="color:var(--text);text-decoration:underline">hello@couturemodern.example</a></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section" aria-label="Newsletter">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px">
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;margin:0">Join the List</h3>
+          <div style="color:var(--muted);font-size:13px">Sign up for drops & private sales (no spam)</div>
+        </div>
+        <form onsubmit="event.preventDefault();alert('Subscribed — demo only')" style="display:flex;gap:8px;align-items:center">
+          <input type="email" required placeholder="Your email" style="padding:10px;border-radius:10px;border:1px solid rgba(16,16,16,0.06);background:transparent">
+          <button class="btn" style="background:var(--text);color:#fff;border:none;padding:10px 14px;border-radius:10px">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <div style="font-weight:700">Couture Modern</div>
+      <div style="color:var(--muted);font-size:13px">© 2025 Couture Modern — All rights reserved</div>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <a href="#" style="color:var(--muted);font-size:14px">Privacy Policy</a>
+      <a href="#" style="color:var(--muted);font-size:14px">Terms</a>
+      <a href="#" style="color:var(--muted);font-size:14px">Instagram</a>
+    </div>
+  </footer>
+
   <script>
-    document.addEventListener('scroll',()=>{
-      document.querySelectorAll('.animate-fadeIn').forEach(el=>{
-        if(el.getBoundingClientRect().top < window.innerHeight*0.85){el.style.opacity=1;el.style.transform='translateY(0)';el.style.transition='all 1s ease';}
+    // Intersection observer for fade-up elements
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target) }
+      });
+    },{threshold:0.12});
+
+    document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileBtn');
+    mobileBtn && mobileBtn.addEventListener('click',()=>{
+      const nav = document.querySelector('nav');
+      if(window.innerWidth <= 980){
+        if(nav.style.display === 'flex'){ nav.style.display='none'; mobileBtn.textContent='☰' }
+        else{ nav.style.display='flex'; nav.style.flexDirection='column'; nav.style.position='absolute'; nav.style.right='20px'; nav.style.top='64px'; nav.style.background='rgba(255,255,255,0.98)'; nav.style.padding='12px'; mobileBtn.textContent='✕' }
+      }
+    });
+
+    // Simple mailto fallback for contact form
+    function submitMail(e){
+      e.preventDefault();
+      const form = e.target;
+      const name = encodeURIComponent(form.name.value || '');
+      const email = encodeURIComponent(form.email.value || '');
+      const message = encodeURIComponent(form.message.value || '');
+      const body = encodeURIComponent(`Message: ${form.message.value}\n\nFrom: ${form.name.value} — ${form.email.value}`);
+      const subj = encodeURIComponent('Contact from Couture Modern site');
+      window.location.href = `mailto:hello@couturemodern.example?subject=${subj}&body=${body}`;
+    }
+
+    // Improve scroll behavior for in-page links (smooth)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (ev)=>{
+        const href = a.getAttribute('href');
+        if(href.length > 1){
+          ev.preventDefault();
+          const target = document.querySelector(href);
+          if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+        }
       });
     });
   </script>
