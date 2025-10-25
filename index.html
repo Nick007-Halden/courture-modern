@@ -105,37 +105,35 @@
     a:focus, button:focus, input:focus{outline:3px solid rgba(198,156,109,0.12);outline-offset:2px}
   </style>
 </head>
-<body class="bg-black text-white tracking-normal antialiased">
-  <header id="navBar" class="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-md border-b border-white/10 transition-all duration-300">
-    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="text-3xl font-bold font-['Playfair_Display']">Couture Modern</div>
+<body class="bg-white text-gray-900 tracking-tight antialiased">
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 transition-all duration-300">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-3xl font-['Playfair_Display'] font-light">Couture Modern</div>
       <ul class="space-x-8 hidden md:flex text-lg font-light">
-        <li class="hover:opacity-70 transition">Home</li>
-        <li class="hover:opacity-70 transition">Collections</li>
-        <li class="hover:opacity-70 transition">Lookbook</li>
-        <li class="hover:opacity-70 transition">Contact</li>
+        <li class="hover:opacity-60 transition cursor-pointer">Home</li>
+        <li class="hover:opacity-60 transition cursor-pointer">Collections</li>
+        <li class="hover:opacity-60 transition cursor-pointer">Lookbook</li>
+        <li class="hover:opacity-60 transition cursor-pointer">Contact</li>
       </ul>
       <button id="mobileMenuBtn" class="md:hidden text-3xl">☰</button>
     </nav>
   </header>
-  <section class="h-screen flex items-center justify-center" style="background:url('https://images.unsplash.com/photo-1520975922071-75ec09857daf?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;">
-    <div class="text-center px-6">
-      <h1 class="text-6xl md:text-7xl font-['Playfair_Display'] mb-6 drop-shadow-xl">Dark Royal Couture</h1>
-      <p class="text-lg md:text-2xl font-light max-w-2xl mx-auto opacity-90">Where timeless European elegance meets fearless runway futurism.</p>
+  <section class="h-screen flex items-center justify-center bg-cover bg-center" style="background:url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1400&q=80') no-repeat;">
+    <div class="text-center px-6 animate-fadeIn opacity-0 translate-y-8">
+      <h1 class="text-5xl md:text-7xl font-['Playfair_Display'] font-light mb-6">Modern Parisian Couture</h1>
+      <p class="text-lg md:text-xl font-light max-w-2xl mx-auto opacity-80">Effortless minimalism crafted with poetic precision.</p>
     </div>
   </section>
-  <section class="py-24 px-6 md:px-12 text-center animate-fadeIn">
-    <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] mb-4">Runway Drop 01</h2>
-    <p class="text-lg md:text-xl font-light max-w-3xl mx-auto opacity-80">Avant‑garde silhouettes engineered for a post‑digital couture era.</p>
+  <section class="py-24 px-6 md:px-12 text-center animate-fadeIn opacity-0 translate-y-8">
+    <h2 class="text-4xl md:text-5xl font-['Playfair_Display'] font-light mb-4">Featured Editorial</h2>
+    <p class="text-lg md:text-xl font-light max-w-3xl mx-auto opacity-70">A curated capsule inspired by the quiet architecture of light and shadow.</p>
   </section>
   <script>
-    // basic smooth scroll + fade animation trigger
     document.addEventListener('scroll',()=>{
       document.querySelectorAll('.animate-fadeIn').forEach(el=>{
-        if(el.getBoundingClientRect().top < window.innerHeight*0.8){el.style.opacity=1;el.style.transform='translateY(0)';}
+        if(el.getBoundingClientRect().top < window.innerHeight*0.85){el.style.opacity=1;el.style.transform='translateY(0)';el.style.transition='all 1s ease';}
       });
     });
   </script>
-  <!-- future lookbook / collections next -->
 </body>
 </html>
